@@ -31,19 +31,17 @@ csv_file.write(data)
 def  lin_reg():
     df = pd.read_csv(csv_link)
 
-    #data = df
+   
 
     data = df.dropna()
  
     bruh = pd.DataFrame(data)
-    #print(data)
-    #print(data)
+  
     print(bruh)
     print(bruh.iloc[[-1]])
     new_high = bruh["High"].iloc[-1]
     new_low = bruh["Low"].iloc[-1]
-    #new_high = input('Latest High: ')
-    #   new_low = input('Latest Low: ')
+   
 
     High=pd.DataFrame(data['High'])
     Low=pd.DataFrame(data['Low'])
@@ -70,7 +68,7 @@ def  lin_reg():
     
 
 df = pd.read_csv(csv_link)
-#data = df
+
 data = df.dropna()
 
 bruh = pd.DataFrame(data)
@@ -94,12 +92,6 @@ try:
     lin_reg()
     
 
-
-    #data.plot(kind='scatter', x='High', y='Low')
-    #
-    #plt.scatter(High,Low)
-    #plt.plot(High, Low, '.r-')
-    #plt.show()
 except:
     pass
 import csv
@@ -116,19 +108,13 @@ Low_predict = bruh["Low"].iloc[-1]
 with open('values.csv', 'a', encoding='UTF8', newline='') as not_f:
     writer = csv.writer(not_f)
     writer.writerow('')
-    #writer.writerow(header)
+  
     for i in range(0,day_num):
         print(High_predict)
         
         tommorow = date.today() + timedelta(days=day_num)
         
 
-        # write the header
-        
-        
-        # write the data
-       
-        #writer.writerows(data)
         bruh.iloc[-1, df.columns.get_loc('Date')] = tommorow
         bruh.iloc[-1, df.columns.get_loc('High')] = float(High_predict)
         bruh.iloc[-1, df.columns.get_loc('Low')] = float(Low_predict)
@@ -141,19 +127,15 @@ with open('values.csv', 'a', encoding='UTF8', newline='') as not_f:
         
         df = pd.read_csv('values.csv')
 
-        #data = df
+    
 
         data = df.dropna()
     
         bruh = pd.DataFrame(data)
-        #print(data)
-        #print(data)
-        #print(bruh)
-        #print(bruh.iloc[[-1]])
+      
         new_high = High_predict
         new_low = Low_predict
-        #new_high = input('Latest High: ')
-        #new_low = input('Latest Low: ')
+       
 
         High=pd.DataFrame(data['High'])
         Low=pd.DataFrame(data['Low'])
